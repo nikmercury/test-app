@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   companyName: {
     fontWeight: 'bold',
-    fontSize: 26,
+    fontSize: 22,
     marginRight: gaps.l,
     flex: 2,
   },
