@@ -18,7 +18,7 @@ import {
 
 import { styles } from './home-screen.styles';
 
-const ITEMS_REFETCH_TIMEOUT = 30000;
+const ITEMS_REFETCH_INTERVAL = 30000;
 
 const keyExtractor = (item: Company, index: number) => `${item.name}_${index}`;
 
@@ -41,8 +41,8 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(getCompanies());
-    const timerId = setTimeout(() => dispatch(getCompanies()), ITEMS_REFETCH_TIMEOUT);
-    return () => clearTimeout(timerId);
+    const timerId = setInterval(() => dispatch(getCompanies()), ITEMS_REFETCH_INTERVAL);
+    return () => clearInterval(timerId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
